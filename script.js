@@ -10,6 +10,10 @@ var addItem = function (item) {
   // TODO: finish
 }
 
+var removeCart = function() {
+  $('.remove').empty();
+}
+
 var clearCart = function () {
   // TODO: finish
   $( ".cart-list" ).empty();
@@ -26,7 +30,7 @@ var totalCart = Number($('.total').val());
 
 $('.add-to-cart').on('click', function () {
   // TODO: get the "item" object from the page
-  var cardName = $(this).closest('.card').attr('data-name')
+  var cardName = $(this).closest('.card').attr('data-name');
   var cardPrice = $(this).closest('.card').attr('data-price');
   var totals = totalCart += Number(cardPrice);
   $('.total').html(totalCart);
@@ -38,6 +42,10 @@ $('.add-to-cart').on('click', function () {
        price: cardPrice+'$'
       }
   $(".cart-list").append(template(data));
+
+  $('.remove-cart').on('click', function () {
+  removeCart();
+});
 
 
   // addItem(item);
